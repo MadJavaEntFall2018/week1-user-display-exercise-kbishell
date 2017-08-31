@@ -20,7 +20,7 @@ To begin using this project:
 
 1. Create the database. You can use the sql below, or, you may write your own.
 
-        mysql> CREATE DATABASE SAMPLE;
+        mysql> CREATE DATABASE sample;
        
 1. Select the database you just created. 
 
