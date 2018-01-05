@@ -40,7 +40,7 @@ public class UserData {
         return users;
     }
 
-    //TODO add a method or methods to return a single user based on search criteria
+    //TODO add a method or methods to return a users based on search criteria
 
     private User createUserFromResults(ResultSet results) throws SQLException {
         User user = new User();

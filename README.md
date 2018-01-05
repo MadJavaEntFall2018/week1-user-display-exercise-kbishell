@@ -56,5 +56,5 @@ To begin using this project:
 
 ## Next Next Steps
 
-1. The completed application will provide the ability to search for and display users from the database. The user display/search results
+1. Add to the project such that the completed application provides the ability to search for and display users from the database. The user display/search results
     should include userid, first name, last name, and age. At minimum, provide a last name search. Some TODOs have been added to help you get started.
