@@ -11,7 +11,8 @@ package edu.matc.entity;
 public class User {
     private String firstName;
     private String lastName;
-    private String userid;
+    private String userName;
+    private int id;
 
 
     /**
@@ -22,15 +23,16 @@ public class User {
 
     /**
      * Instantiates a new User.
-     *
-     * @param firstName the first name
+     *  @param firstName the first name
      * @param lastName  the last name
-     * @param userid    the userid
+     * @param userName
+     * @param id    the id
      */
-    public User(String firstName, String lastName, String userid) {
+    public User(String firstName, String lastName, String userName, int id) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userid = userid;
+        this.userName = userName;
+        this.id = id;
     }
 
 
@@ -70,23 +72,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    /**
-     * Gets userid.
-     *
-     * @return the userid
-     */
-    public String getUserid() {
-        return userid;
-    }
 
-    /**
-     * Sets userid.
-     *
-     * @param userid the userid
-     */
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
 
 
     @Override
@@ -94,7 +80,7 @@ public class User {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", userid='" + userid + '\'' +
+                ", userName='" + userName + '\'' +
                 '}';
     }
 
