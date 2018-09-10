@@ -20,7 +20,7 @@ public class UserData {
         List<User> users = new ArrayList<User>();
         Database database = Database.getInstance();
         Connection connection = null;
-        String sql = "SELECT * FROM users";
+        String sql = "SELECT * FROM user";
 
         try {
             database.connect();
