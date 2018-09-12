@@ -3,7 +3,7 @@
 <html><body>
 
 <div class="container-fluid">
-    <h2>Search Results: </h2>
+    <h2>Search Results:</h2>
 
     <table class="table">
         <tr>

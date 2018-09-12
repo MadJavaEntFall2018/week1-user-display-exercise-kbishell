@@ -27,21 +27,20 @@ public class SearchUser extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         UserData userData = new UserData();
-        req.setAttribute("users", userData.getAllUsers());
 
         String search = req.getParameter("search");
+        List<User> users = userData.getUserByLastName(search);
 
-        if(search == null && search.length() == 0){
-            HttpSession session = req.getSession();
-            session.setAttribute("emptyMessage", "Please enter search information");
+        if(search == null || search.length() == 0){
+            /*HttpSession session = req.getSession();
+            session.setAttribute("emptyMessage", "Please enter search information");*/
+            req.setAttribute("users", userData.getAllUsers());
         } else {
-            List<User> users = userData.getUserByLastName(search);
-            req.setAttribute("users", userData.getUserByLastName(search));
 
+            req.setAttribute("users", userData.getUserByLastName(search));
         }
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
-
     }
 }
