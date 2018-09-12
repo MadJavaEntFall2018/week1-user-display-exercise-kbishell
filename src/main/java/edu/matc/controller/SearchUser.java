@@ -29,7 +29,6 @@ public class SearchUser extends HttpServlet {
         UserData userData = new UserData();
 
         String search = req.getParameter("search");
-        List<User> users = userData.getUserByLastName(search);
 
         if(search == null || search.length() == 0){
             /*HttpSession session = req.getSession();
