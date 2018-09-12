@@ -50,10 +50,8 @@ public class UserData {
 
     public List<User> getUserByLastName(String search){
 
-        String sql = "SELECT * FROM user WHERE last_name LIKE '%'" + search + "%'";
+        String sql = "SELECT * FROM user WHERE last_name LIKE '%" + search + "%'";
         return getUsers(sql);
-
-
     }
 
     private User createUserFromResults(ResultSet results) throws SQLException {
