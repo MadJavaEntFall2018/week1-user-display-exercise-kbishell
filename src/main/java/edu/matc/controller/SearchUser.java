@@ -1,5 +1,6 @@
 package edu.matc.controller;
 
+import edu.matc.entity.User;
 import edu.matc.persistence.UserData;
 
 import javax.servlet.RequestDispatcher;
@@ -8,7 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.*;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * A simple servlet to welcome the user.
@@ -25,7 +28,20 @@ public class SearchUser extends HttpServlet {
 
         UserData userData = new UserData();
         req.setAttribute("users", userData.getAllUsers());
+
+        String search = req.getParameter("search");
+
+        if(search == null && search.length() == 0){
+            HttpSession session = req.getSession();
+            session.setAttribute("emptyMessage", "Please enter search information");
+        } else {
+            List<User> users = userData.getUserByLastName(search);
+            req.setAttribute("users", userData.getUserByLastName(search));
+
+        }
+
         RequestDispatcher dispatcher = req.getRequestDispatcher("/results.jsp");
         dispatcher.forward(req, resp);
+
     }
 }

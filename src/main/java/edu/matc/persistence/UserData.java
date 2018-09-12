@@ -17,11 +17,10 @@ import java.util.List;
  */
 public class UserData {
 
-    public List<User> getAllUsers() {
+    private List<User> getUsers(String sql) {
         List<User> users = new ArrayList<User>();
         Database database = Database.getInstance();
         Connection connection = null;
-        String sql = "SELECT * FROM user";
 
         try {
             database.connect();
@@ -41,6 +40,22 @@ public class UserData {
         return users;
     }
 
+
+    public List<User> getAllUsers(){
+
+        String sql = "SELECT * FROM user";
+        return getUsers(sql);
+
+    }
+
+    public List<User> getUserByLastName(String search){
+
+        String sql = "SELECT * FROM user WHERE last_name LIKE '%'" + search + "%'";
+        return getUsers(sql);
+
+
+    }
+
     private User createUserFromResults(ResultSet results) throws SQLException {
         User user = new User();
         user.setLastName(results.getString("last_name"));
@@ -49,7 +64,6 @@ public class UserData {
         user.setDateOfBirth(LocalDate.parse(results.getString("date_of_Birth")));
 
         return user;
-
     }
 
 }
