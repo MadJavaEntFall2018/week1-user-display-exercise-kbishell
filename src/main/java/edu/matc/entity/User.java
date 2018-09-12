@@ -1,7 +1,7 @@
 package edu.matc.entity;
 
-// TODO Add instance variable for the date of birth
-// TODO Add a calculation for the user's age. Age should not be stored, it should be calculated only.
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 /**
  * A class to represent a user.
@@ -13,6 +13,7 @@ public class User {
     private String lastName;
     private String userName;
     private int id;
+    private LocalDate dateOfBirth;
 
 
     /**
@@ -24,16 +25,18 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param userName  the user name
-     * @param id        the id
+     * @param firstName   the first name
+     * @param lastName    the last name
+     * @param userName    the user name
+     * @param id          the id
+     * @param dateOfBirth the date of birth
      */
-    public User(String firstName, String lastName, String userName, int id) {
+    public User(String firstName, String lastName, String userName, int id, LocalDate dateOfBirth) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.id = id;
+        this.dateOfBirth = dateOfBirth;
     }
 
 
@@ -109,14 +112,43 @@ public class User {
         this.id = id;
     }
 
+    /**
+     * Gets date of birth.
+     *
+     * @return the date of birth
+     */
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    /**
+     * Sets date of birth.
+     *
+     * @param dateOfBirth the date of birth
+     */
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    /**
+     * Get age.
+     *
+     * @return the int
+     */
+    public int getAge(){
+
+        return (int)ChronoUnit.YEARS.between(dateOfBirth, LocalDate.now());
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", userName='" + userName + '\'' +
+                ", id=" + id +
+                ", dateOfBirth=" + dateOfBirth +
+                ", age=" + getAge() +
                 '}';
     }
-
-
 }

@@ -2,7 +2,6 @@
 
 <html><body>
 
-<%--TODO Pretty up the results!--%>
 <div class="container-fluid">
     <h2>Search Results: </h2>
     <table>
@@ -20,6 +19,7 @@
                 <td>${user.lastName}</td>
                 <td>${user.userName}</td>
                 <td>${user.id}</td>
+                <td>${user.age}</td>
             </tr>
         </c:forEach>
 

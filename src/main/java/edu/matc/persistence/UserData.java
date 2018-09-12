@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,8 +46,12 @@ public class UserData {
     private User createUserFromResults(ResultSet results) throws SQLException {
         User user = new User();
         user.setLastName(results.getString("last_name"));
-        // TODO map the remaining fields
+        user.setFirstName(results.getString("first_name"));
+        user.setUserName(results.getString("user_name"));
+        user.setDateOfBirth(LocalDate.parse(results.getString("date_of_Birth")));
+
         return user;
+
     }
 
 }
